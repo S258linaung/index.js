@@ -17,6 +17,12 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const SECRET_KEY = process.env.SECRET_KEY || "change_this_secret";
 
+const authRoutes = require("./routes/auth");
+const orderRoutes = require("./routes/orders");
+
+app.use("/auth", authRoutes);
+app.use("/orders", orderRoutes);
+
 /* ===================== MIDDLEWARE ===================== */
 app.use(cors());
 app.use(express.json());
